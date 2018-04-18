@@ -2,36 +2,6 @@
 class Administrateur extends CI_Controller
 {
 
-  public function afficherAdmin()
-  {
-    if ($_SESSION['verif'] == 1)
-      {
-        $this->load->view('Administrateur/admin.php');
-      }
-      elseif ($_SESSION['verif'] <> 1)
-      {
-        $this->load->view('Administrateur/insertionReussie.php');
-      }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   public function __construct()
   {
      parent::__construct();

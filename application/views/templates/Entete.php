@@ -13,5 +13,5 @@
     <?php else : ?>
        <a href="<?php echo site_url('visiteur/seConnecter') ?>">Se Connecter</a>&nbsp;&nbsp;
     <?php endif; ?>
-    <a href="<?php echo site_url('visiteur/listerLesArticles') ?>">Lister tous les Articles</a>&nbsp;&nbsp;
+    <a href="<?php echo site_url('visiteur/afficheracceuil') ?>">Lister tous les Articles</a>&nbsp;&nbsp;
     <a href="<?php echo site_url('visiteur/listerLesArticlesAvecPagination') ?>">Lister les Articles (par 3)</a>&nbsp;&nbsp;

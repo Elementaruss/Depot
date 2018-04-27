@@ -1,0 +1,21 @@
+<h2><?php echo $TitreDeLaPage ?></h2>
+<!-- données récupérées en 'mode objet' -->
+
+<?php foreach ($lesArticles as $unArticle):
+      echo '<h3>'.anchor('visiteur/voirUnArticle/'.$unArticle->NOPRODUIT,$unArticle->LIBELLE).'</h3>';
+      echo '<div class="container">';
+        echo '<div class="row">';
+          echo '<div class="col-sm-4">';
+            echo '<div class="panel panel-primary">';
+              echo '<div class="panel-heading">'.anchor('visiteur/voirUnArticle/'.$unArticle->NOPRODUIT,$unArticle->LIBELLE).'</div>';
+              echo '<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>';
+              echo '<div class="panel-footer">Buy 50 mobiles and get a gift card</div>';
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>';
+endforeach ?>
+
+<p>Pour avoir afficher le détail d'un article, cliquer sur son titre</p>
+
+<p><?php echo $liensPagination; ?></p>

@@ -69,9 +69,9 @@ class Visiteur extends CI_Controller {
    }
    else
    {  // formulaire validé
-     $Utilisateur = array( // cIdentifiant, cMotDePasse : champs de la table tabutilisateur
-       'cIdentifiant' => $this->input->post('txtIdentifiant'),
-       'cMotDePasse' => $this->input->post('txtMotDePasse'),
+     $Utilisateur = array( // NOCLIENT, MOTDEPASSE : champs de la table tabutilisateur
+       'PRENOM' => $this->input->post('txtIdentifiant'),
+       'MOTDEPASSE' => $this->input->post('txtMotDePasse'),
      ); // on récupère les données du formulaire de connexion
 
      // on va chercher l'utilisateur correspondant aux Id et MdPasse saisis
@@ -79,10 +79,10 @@ class Visiteur extends CI_Controller {
      if (!($UtilisateurRetourne == null))
      {    // on a trouvé, identifiant et statut (droit) sont stockés en session
        $this->load->library('session');
-       $this->session->identifiant = $UtilisateurRetourne->cIdentifiant;
-       $this->session->statut = $UtilisateurRetourne->cStatut;
+       $this->session->identifiant = $UtilisateurRetourne->PRENOM;
+       $this->session->statut = $UtilisateurRetourne->PROFIL;
 
-       $DonneesInjectees['Identifiant'] = $Utilisateur['cIdentifiant'];
+       $DonneesInjectees['Identifiant'] = $Utilisateur['PRENOM'];
        $this->load->view('templates/Entete');
        $this->load->view('visiteur/connexionReussie', $DonneesInjectees);
        $this->load->view('templates/PiedDePage');
@@ -98,6 +98,11 @@ class Visiteur extends CI_Controller {
 
  public function seDeConnecter() { // destruction de la session = déconnexion
     $this->session->sess_destroy();
+    $this->load->helper('url');
+    
+    redirect('visiteur/afficheracceuil');
+    
+
 }
 
 // affichage avec pagination
@@ -106,7 +111,7 @@ public function listerLesArticlesAvecPagination() {
    $config = array();
    $config["base_url"] = site_url('visiteur/listerLesArticlesAvecPagination');
    $config["total_rows"] = $this->ModeleArticle->nombreDArticles();
-   $config["per_page"] = 3; // nombre d'articles par page
+   $config["per_page"] = 6; // nombre d'articles par page
    $config["uri_segment"] = 3; /* le n° de la page sera placé sur le segment n°3 de URI,
    pour la page 4 on aura : visiteur/listerLesArticlesAvecPagination/4   */
 

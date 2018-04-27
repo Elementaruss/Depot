@@ -10,6 +10,8 @@ echo form_open('administrateur/ajouterUnArticle') ?>
 <label for="txtTexte">Texte de l'article</label>
 <textarea name="txtTexte" value="<?php echo set_value('txtTexte'); ?>"></textarea><br/>
 
+
+
 <label for="txtNomFichierImage">Nom du fichier Image</label>
 <input type="input" name="txtNomFichierImage" value="<?php echo set_value('txtNomFichierImage'); ?>" /><br/>
 

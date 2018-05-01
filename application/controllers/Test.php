@@ -27,5 +27,9 @@ public function bonjourAvecSaisieNom() // traitement du retour du formulaire
 $DonneesInjectees['nomDeLaPersonne'] = $this->input->post('txtNom');
 $this->load->view('test/bonjourAvecParametre',$DonneesInjectees);
 }
+
+
+
+
 }
 ?>
